@@ -11,8 +11,6 @@
 %Grid size n**n, which .
 #const n=g*g.
 
-
-
 sudoku(X,Y,N) :- initial(X, Y, N).
 % Achieved - input of the initial cells
 
@@ -23,13 +21,9 @@ sudoku(X,Y,N) :- initial(X, Y, N).
 % Achieved value N is neither in the same row or column 
 
 % 1B
-subgrid_size(g).subgrid(X, Y, G) :- X=1..n, Y=1..n, G = 1 + (((X - 1) / g) * g + ((Y - 1) / g)).
-%cell(X, Y) :- sudoku(X, Y, _).
+subgrid(X, Y, G) :- X=1..n, Y=1..n, G = 1 + (((X - 1) / g) * g + ((Y - 1) / g)).
 %Achieved creating subgrid
-
-
-
 
 #show sudoku/3.
 #show subgrid/3.
-%#show cell/2.
+

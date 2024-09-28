@@ -8,7 +8,7 @@
 %subgrid size,
 #const g=2.
 
-%Grid size n**n, which .
+%Grid size g*g, which .
 #const n=g*g.
 
 sudoku(X,Y,N) :- initial(X, Y, N).
@@ -24,6 +24,10 @@ sudoku(X,Y,N) :- initial(X, Y, N).
 subgrid(X, Y, G) :- X=1..n, Y=1..n, G = 1 + (((X - 1) / g) * g + ((Y - 1) / g)).
 %Achieved creating subgrid
 
+% 1C
+:- subgrid(X, Y, G), subgrid(X', Y', G), sudoku(X, Y, N), sudoku(X', Y', N), (X, Y) != (X', Y').
+%Achieved value N is not repeated in the same subgrid, along with the other sudoku rules
+
 #show sudoku/3.
-#show subgrid/3.
+%#show subgrid/3.
 

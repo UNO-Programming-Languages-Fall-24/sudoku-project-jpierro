@@ -10,7 +10,7 @@
 #const g=3.
 
 % set grid size equal to g^2.
-n=g*g.
+#const n=g*g.
 
 sudoku(X,Y,N) :- initial(X, Y, N).
 % Achieved - input of the initial cells
